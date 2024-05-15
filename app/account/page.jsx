@@ -1,5 +1,5 @@
 import AccountForm from './account-form'
-import { createClient } from '@/utils/supabase/server'
+import { createClient } from '@/utils/supabase/client'
 
 const Account = ({ user }) => {
   return <AccountForm user={user} />
