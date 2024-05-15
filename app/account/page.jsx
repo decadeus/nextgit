@@ -1,24 +1,20 @@
 import AccountForm from './account-form'
 import { createClient } from '@/utils/supabase/server'
 
-export default function Account({ user }) {
+const Account = ({ user }) => {
   return <AccountForm user={user} />
 }
 
-export async function getServerSideProps() {
+Account.getInitialProps = async () => {
   const supabase = createClient()
 
   const { data: user, error } = await supabase.auth.getUser()
 
   if (error || !user) {
-    return {
-      notFound: true, // or handle error appropriately
-    }
+    return { user: null } // or handle error appropriately
   }
 
-  return {
-    props: {
-      user,
-    },
-  }
+  return { user }
 }
+
+export default Account
