@@ -41,7 +41,7 @@ jobs:
         with:
           version: latest
 
-      - run: supabase link --project-ref $SUPABASE_PROJECT_ID
+      - run: supabase link --project-ref rkqaofvzgdjvsfsikvyw
       - run: supabase db push
       
       - name: Checkout
